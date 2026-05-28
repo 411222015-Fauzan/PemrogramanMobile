@@ -1,98 +1,107 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+    <View style={styles.container}>
+      <View style={styles.card}>
+        <Text style={styles.welcome}>Selamat Datang</Text>
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+        <Text style={styles.title}>Pemrograman Mobile</Text>
+
+        <Text style={styles.description}>
+          Aplikasi ini adalah project pembelajaran saya menggunakan Expo untuk
+          memahami dasar pengembangan aplikasi mobile.
+        </Text>
+
+        <View style={styles.profileBox}>
+          <Text style={styles.label}>Nama</Text>
+          <Text style={styles.value}>Muhammad Fauzan Arbah</Text>
+
+          <Text style={styles.label}>Program Studi</Text>
+          <Text style={styles.value}>Teknik Informatika</Text>
+
+          <Text style={styles.label}>NIM</Text>
+          <Text style={styles.value}>411222015</Text>
+        </View>
+
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>Mulai Belajar</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+  container: {
+    flex: 1,
+    backgroundColor: "#eaf2ff",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
   },
-  stepContainer: {
-    gap: 8,
+  card: {
+    width: "100%",
+    backgroundColor: "#ffffff",
+    borderRadius: 22,
+    padding: 24,
+    alignItems: "center",
+    elevation: 6,
+    shadowColor: "#000",
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+  },
+  welcome: {
+    fontSize: 22,
+    fontWeight: "600",
+    color: "#2563eb",
     marginBottom: 8,
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  title: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "#1e293b",
+    textAlign: "center",
+    marginBottom: 16,
+  },
+  description: {
+    fontSize: 15,
+    color: "#475569",
+    textAlign: "center",
+    lineHeight: 22,
+    marginBottom: 24,
+  },
+  profileBox: {
+    width: "100%",
+    backgroundColor: "#f8fafc",
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 24,
+  },
+  label: {
+    fontSize: 13,
+    color: "#64748b",
+    marginTop: 8,
+  },
+  value: {
+    fontSize: 16,
+    fontWeight: "700",
+    color: "#0f172a",
+    marginBottom: 6,
+  },
+  button: {
+    backgroundColor: "#2563eb",
+    paddingVertical: 13,
+    paddingHorizontal: 30,
+    borderRadius: 14,
+  },
+  buttonText: {
+    color: "#ffffff",
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });
