@@ -1,10 +1,11 @@
+import { router } from "expo-router";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.welcome}>Selamat Datang</Text>
+        <Text style={styles.welcome}>Selamat Datang Di</Text>
 
         <Text style={styles.title}>Pemrograman Mobile</Text>
 
@@ -24,7 +25,7 @@ export default function HomeScreen() {
           <Text style={styles.value}>411222015</Text>
         </View>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => router.push("/materi")}>
           <Text style={styles.buttonText}>Mulai Belajar</Text>
         </TouchableOpacity>
       </View>
