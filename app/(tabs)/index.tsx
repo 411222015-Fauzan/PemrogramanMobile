@@ -25,9 +25,9 @@ export default function HomeScreen() {
           <Text style={styles.value}>411222015</Text>
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={() => router.push("/materi")}>
-          <Text style={styles.buttonText}>Mulai Belajar</Text>
-        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={() => router.push("/login")}>
+  <Text style={styles.buttonText}>Mulai Belajar</Text>
+</TouchableOpacity>
       </View>
     </View>
   );
